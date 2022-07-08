@@ -25,6 +25,7 @@ jobs:
           cmd /c 'ssh-keyscan web.sourceforge.net > "%USERPROFILE%\.ssh\known_hosts" 2>nul'
           cmd /c "scp LxRunOffline-$(git describe --tags)-mingw.zip ddosolitary@web.sourceforge.net:/home/project-web/ddosolitary-builds/htdocs/LxRunOffline/ 2>&1"
           if ($LASTEXITCODE -ne 0) { exit 1 }
+  
   build-msvc:
     runs-on: windows-latest
     steps:
